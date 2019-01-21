@@ -36,9 +36,23 @@ print(fibonacci(1, 9))
 
 
 def sort_to_max(origin_list):
-    pass
+    sorted_origin = []
+    i = 0
+    n = len(origin_list)
+    while i < n:
+        min_element = min(origin_list)
+        sorted_origin.append(min_element)
+        origin_list.remove(min_element)
+        i += 1
+    return sorted_origin
 
-sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+
+
+    # pass
+
+
+print(sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0]))
+
 
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
