@@ -3,6 +3,8 @@
 # 1 или более символов в верхнем регистре.
 # Т.е. из строки "mtMmEZUOmcq" нужно получить ['mt', 'm', 'mcq']
 # Решить задачу двумя способами: с помощью re и без.
+import re
+
 
 line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'GIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLeclMwAoktKlfUBJHPsnawvjPhfgewVzK'\
@@ -20,6 +22,8 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'XiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQoiQ'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
+lowcaps_list = re.findall(r'[a-z]+', line)
+print(format(lowcaps_list, ))
 
 # Задание-2:
 # Вывести символы в верхнем регистре, слева от которых находятся
@@ -45,6 +49,8 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'JFaXiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQ'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
 
+lowcaps_list2 = re.findall(r'[a-z]{2}([A-Z]+)[A-Z]{2}', line_2)
+print(lowcaps_list2)
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
 # произвольными целыми цифрами, в результате в файле должно быть
