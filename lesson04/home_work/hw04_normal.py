@@ -4,7 +4,8 @@
 # Т.е. из строки "mtMmEZUOmcq" нужно получить ['mt', 'm', 'mcq']
 # Решить задачу двумя способами: с помощью re и без.
 import re
-
+import random
+import os
 
 line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'GIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLeclMwAoktKlfUBJHPsnawvjPhfgewVzK'\
@@ -23,7 +24,7 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
 lowcaps_list = re.findall(r'[a-z]+', line)
-print(format(lowcaps_list, ))
+print(lowcaps_list)
 
 # Задание-2:
 # Вывести символы в верхнем регистре, слева от которых находятся
@@ -57,3 +58,21 @@ print(lowcaps_list2)
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
+
+
+path = os.path.join('c:\temp', 'testrandom.txt')
+file_test = open(path, 'w', encoding='UTF-8')
+
+random_list = [random.randint(0, 2500) for _ in range(2500)]
+el = ''
+for x in random_list:
+    if len(el) <= 2500:
+        el += el + str(x)
+line_3 = el[:2500]
+
+file_test.write(line_3)
+file_test.close()
+print(len(line_3))
+print(len(el))
+# max_digits = re.findall()
+# print(re.s)
