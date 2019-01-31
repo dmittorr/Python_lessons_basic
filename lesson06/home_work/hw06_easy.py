@@ -60,7 +60,7 @@ class Trapeze:
     #         if abs((self.topx[i] - self.topx[i + 1]) / (self.topy[i] - self.topy[i + 1])):
     #             return True
 
-    def iseqsides(self):
+    def iseqsides(self,):
         if self.side1 == self.side3 or self.side2 == self.side4:
             return True
 
@@ -68,6 +68,16 @@ class Trapeze:
         return self.side1 + self.side2 + self.side3 + self.side4
 
     def square(self):
-        return (sqrt(self.perimeter() * (self.perimeter() - self.side1) * (self.perimeter() - self.side2) *
-                     (self.perimeter() - self.side3)))
+        if self.iseqsides():
+            if self.side1 == self.side3:
+                base = abs(self.side2 - self.side4) / 2
+                height = sqrt(base**2 + self.side1**2)
+                return (self.side2 + self.side4) * height / 2
+            elif self.side2 == self.side4:
+                base = abs(self.side1 - self.side3) / 2
+                height = sqrt(base ** 2 + self.side2 ** 2)
+                return (self.side1 + self.side3) * height / 2
+        else:
+            return False
+
 
