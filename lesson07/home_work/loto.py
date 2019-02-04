@@ -57,3 +57,38 @@
 модуль random: http://docs.python.org/3/library/random.html
 
 """
+import random
+
+
+class Card_string:
+    string_numbers = []
+
+    def __init__(self):
+        string_numbers = [random.randint(1, 90) for _ in range(0, 5)]
+        self.string_numbers = sorted(string_numbers)
+
+    def __str__(self):
+        return f"Строка: {self.string_numbers}"
+
+
+class Loto_card:
+    card_line1 = []
+    card_line2 = []
+    card_line3 = []
+
+    def __init__(self):
+        self.card_line1 = Card_string()
+        self.card_line2 = Card_string()
+        self.card_line3 = Card_string()
+
+    def __str__(self):
+        return f"Карточка:\n{self.card_line1}\n{self.card_line2}\n{self.card_line3}\n"
+
+
+card1 = Loto_card()
+
+card2 = Loto_card()
+
+
+print(card1)
+print(card2)
