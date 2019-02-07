@@ -44,7 +44,24 @@ OpenWeatherMap — онлайн-сервис, который предостав�
 {"_id":707860,"name":"Hurzuf","country":"UA","coord":{"lon":34.283333,"lat":44.549999}}
 {"_id":519188,"name":"Novinki","country":"RU","coord":{"lon":37.666668,"lat":55.683334}}
     
-    
+class City (object):
+    id: int
+    name: str
+    country: str
+
+    def __init__(self, json_dict: dict):
+        self.id = int(json_dict['id'])
+        self.name = json_dict['name']
+        self.country = json_dict['country']
+
+    def __str__(self):
+        return f"ID #{self.id}, City: {self.name}, Country: {self.country}"
+
+    def __repr__(self):
+        return self.__str__()
+
+
+
 == Получение погоды ==
     На основе списка городов можно делать запрос к сервису по id города. И тут как раз понадобится APPID.
         By city ID
